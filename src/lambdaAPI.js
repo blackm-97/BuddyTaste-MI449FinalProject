@@ -10,7 +10,10 @@ export async function getData() {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({ 
-          movie_name: 'Inception' 
+          movie_name: 'Inception' ,
+          users: [
+            'treemang', 'thatmemecrona'
+          ]
         })
       });
       if (!response.ok) {
@@ -19,7 +22,7 @@ export async function getData() {
   
       const jsonString = await response.json();
       console.log(jsonString);
-      message = jsonString.movie + '\n' + jsonString.rating;
+      message = jsonString.movie + '\n' + jsonString.rating + '\n' + jsonString.user1;
     } catch (error) {
       console.error(error.message);
     }
