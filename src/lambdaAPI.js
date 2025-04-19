@@ -9,15 +9,17 @@ export async function getData() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ movie_name: 'Inception' })
+        body: JSON.stringify({ 
+          movie_name: 'Inception' 
+        })
       });
       if (!response.ok) {
         throw new Error(`Response status: ${response.status}`);
       }
   
-      const json = await response.json();
-      console.log(json);
-      message = json;
+      const jsonString = await response.json();
+      console.log(jsonString);
+      message = jsonString.movie + '\n' + jsonString.rating;
     } catch (error) {
       console.error(error.message);
     }
