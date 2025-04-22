@@ -22,7 +22,7 @@ export async function getData() {
   
       const jsonString = await response.json();
       console.log(jsonString);
-      message = jsonString.movie + '\n' + jsonString.rating + '\n' + jsonString.user1;
+      message = jsonString.movie + '\n' + jsonString.year + '\n' + jsonString.runtime;
     } catch (error) {
       console.error(error.message);
     }
