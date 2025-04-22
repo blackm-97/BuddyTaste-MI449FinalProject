@@ -10,9 +10,9 @@ export async function getData() {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({ 
-          movie_name: 'Inception' ,
+          movie_name: 'Coradawwdne' ,
           users: [
-            'treemang', 'thatmemecrona'
+            'treemang', 'thatmemecrona', 'ratgaming'
           ]
         })
       });
@@ -22,9 +22,15 @@ export async function getData() {
   
       const jsonString = await response.json();
       console.log(jsonString);
-      message = jsonString.movie + '\n' + jsonString.year + '\n' + jsonString.runtime;
+      if(!jsonString.statusCode){ 
+        message = jsonString.movie + '\n' + jsonString.year + '\n' + jsonString.runtime;
+      }
+      else{
+        message = jsonString.body;
+      }
     } catch (error) {
       console.error(error.message);
+      message = error.message;
     }
 
     return message;
